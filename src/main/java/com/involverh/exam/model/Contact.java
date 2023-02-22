@@ -18,6 +18,6 @@ public class Contact {
 
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "contact_id")
-    private List<Phone> phoneNumber;
+    private List<Phone> phoneNumbers;
     private String  email;
 }

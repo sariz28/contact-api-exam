@@ -4,13 +4,6 @@ import javax.persistence.*;
 
 import lombok.*;
 
-enum PhoneType {
-    MOBILE,
-    HOME,
-    WORK,
-    OTHER
-};
-
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor

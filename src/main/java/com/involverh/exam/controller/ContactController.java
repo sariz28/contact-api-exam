@@ -7,10 +7,7 @@ import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -42,7 +39,29 @@ public class ContactController {
     @ApiOperation(value = "Provides contacts by phone number")
     public ResponseEntity<List<Contact>> getContactsByPhone(@PathVariable String phone) {
 
-        List<Contact> contacts = contactRepository.findByPhoneNumberNumberContaining(phone);
+        List<Contact> contacts = contactRepository.findByPhoneNumbersNumberContaining(phone);
         return new ResponseEntity<>(contacts, HttpStatus.OK);
     }
+
+    @PostMapping("/")
+    @ApiOperation(value = "Create contact")
+    public ResponseEntity<Contact> createContact(@RequestBody Contact contact) {
+        contactRepository.save(contact);
+        return new ResponseEntity<>(contact, HttpStatus.CREATED);
+    }
+
+    @PutMapping("/")
+    @ApiOperation(value = "Update contact")
+    public ResponseEntity<Contact> updateContact(@RequestBody Contact contact) {
+        contactRepository.save(contact);
+
+        return new ResponseEntity<>(contact, HttpStatus.OK);
+    }
+
+    @DeleteMapping("/{id}/")
+    @ApiOperation(value = "Delete contact")
+    public void deleteContact(@PathVariable Long id) {
+        contactRepository.deleteById(id);
+    }
+
 }
