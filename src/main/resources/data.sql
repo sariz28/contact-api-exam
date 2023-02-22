@@ -1,6 +1,17 @@
-insert into contact(name, phone_number, email)
-values('Soumitra', '5562345218', 'soumitra@email.com');
-insert into contact(name, phone_number, email)
-values('Liton', '5562345240','liton@email.com');
-insert into contact(name, phone_number, email)
-values('Suman', '5562342039','suman@email.com');
+-- TABLE CONTACT
+insert into contact(id, name, email)
+values(1, 'Soumitra', 'soumitra@email.com');
+insert into contact(id, name, email)
+values(2,'Liton','liton@email.com');
+insert into contact(id, name, email)
+values(3, 'Suman','suman@email.com');
+
+-- TABLE PHONE
+insert into phone(number, type, contact_id)
+values('5528394817', 0, 1);
+insert into phone(number, type, contact_id)
+values('5528102938', 1, 1);
+insert into phone(number, type, contact_id)
+values('5528938472', 2, 2);
+insert into phone(number, type, contact_id)
+values('7793827364', 3, 3);

@@ -1,11 +1,10 @@
 package com.involverh.exam.model;
 
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
+import javax.persistence.*;
 
 import lombok.*;
+
+import java.util.List;
 
 @Entity
 @NoArgsConstructor
@@ -16,6 +15,9 @@ public class Contact {
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Long id;
     private String name;
-    private String  phoneNumber;
+
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @JoinColumn(name = "contact_id")
+    private List<Phone> phoneNumber;
     private String  email;
 }
