@@ -7,4 +7,8 @@ import java.util.List;
 
 public interface ContactRepository extends JpaRepository<Contact, Long> {
     List<Contact> findAll();
+    List<Contact> findByNameContainingIgnoreCase(String name);
+
+    List<Contact> findByPhoneNumberContaining(String number);
+
 }
