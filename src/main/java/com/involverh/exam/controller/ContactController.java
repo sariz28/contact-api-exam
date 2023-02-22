@@ -36,7 +36,7 @@ public class ContactController {
     @GetMapping("/phone/{phone}")
     public ResponseEntity<List<Contact>> getContactsByPhone(@PathVariable String phone) {
 
-        List<Contact> contacts = contactRepository.findByPhoneNumberContaining(phone);
+        List<Contact> contacts = contactRepository.findByPhoneNumberNumberContaining(phone);
         return new ResponseEntity<>(contacts, HttpStatus.OK);
     }
 }
